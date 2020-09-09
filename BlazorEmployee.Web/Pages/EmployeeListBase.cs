@@ -1,4 +1,4 @@
-﻿using EmployeeBlazor.Domain;
+﻿using EmployeeBlazor.Model;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
