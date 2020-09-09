@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeBlazor.Web", "EmployeeBlazor.Web\EmployeeBlazor.Web.csproj", "{301A49DB-4598-46F8-8145-AE047BD1A04D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeBlazor.API", "EmployeeBlazor.API\EmployeeBlazor.API.csproj", "{AA698D7A-0494-47B4-A936-7864FF916B8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeBlazor.Domain", "EmployeeBlazor.Domain\EmployeeBlazor.Domain.csproj", "{5AA08F64-3264-4AD7-B095-ED9000FB19DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorEmployee.Web", "BlazorEmployee.Web\BlazorEmployee.Web.csproj", "{23B54103-30CC-4755-BCF7-2E60ED612678}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{301A49DB-4598-46F8-8145-AE047BD1A04D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{301A49DB-4598-46F8-8145-AE047BD1A04D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{301A49DB-4598-46F8-8145-AE047BD1A04D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{301A49DB-4598-46F8-8145-AE047BD1A04D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AA698D7A-0494-47B4-A936-7864FF916B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AA698D7A-0494-47B4-A936-7864FF916B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA698D7A-0494-47B4-A936-7864FF916B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{5AA08F64-3264-4AD7-B095-ED9000FB19DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AA08F64-3264-4AD7-B095-ED9000FB19DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AA08F64-3264-4AD7-B095-ED9000FB19DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23B54103-30CC-4755-BCF7-2E60ED612678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B54103-30CC-4755-BCF7-2E60ED612678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B54103-30CC-4755-BCF7-2E60ED612678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B54103-30CC-4755-BCF7-2E60ED612678}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
