@@ -27,8 +27,8 @@ namespace EmployeeBlazor.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppdbCtxt>(options => options.UseSqlServer(Configuration.GetConnectionString("SQLServerConnection")));
             services.AddControllers();
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SQLServerConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
