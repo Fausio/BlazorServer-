@@ -20,6 +20,31 @@ namespace EmployeeBlazor.API.Controllers
             this.employeeRepository = employee;
         }
 
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult<Employee>> UpdateModel(int id, Employee employee)
+        {
+            try
+            {
+                if (id != employee.EmployeeId)
+                {
+                    return BadRequest("ID de funcionário incompatível");
+                }
+
+                Employee employeeToUpdate = await employeeRepository.GetAllModelById(id);
+                if (employeeToUpdate == null)
+                {
+                    return NotFound("Funcionário não encontrado");
+                }
+
+                return await employeeRepository.UpdateModel(employee);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult<Employee>> CreateEmployee(Employee employee)
         {
