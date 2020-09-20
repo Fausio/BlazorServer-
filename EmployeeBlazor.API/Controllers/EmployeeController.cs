@@ -25,11 +25,20 @@ namespace EmployeeBlazor.API.Controllers
         {
             try
             {
-                if (employee ==null)
+                if (employee == null)
                 {
                     return BadRequest();
                 }
-                Employee CreateEmployee = await employeeRepository.AddModel(employee) ;
+
+                Employee EmailOfEmployee = await employeeRepository.GetAllModelByEmail(employee.Email);
+
+                if (EmailOfEmployee != null)
+                {
+                    ModelState.AddModelError("Email", "Já existe um funcionario com email: " + employee.Email);
+                    return BadRequest(ModelState);
+                }
+
+                Employee CreateEmployee = await employeeRepository.AddModel(employee);
 
                 return CreatedAtAction(nameof(GetEmployeeById), new { id = CreateEmployee.EmployeeId }, CreateEmployee);
             }
