@@ -20,6 +20,28 @@ namespace EmployeeBlazor.API.Controllers
             this.employeeRepository = employee;
         }
 
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<Employee>> DeleteEmployee(int id)
+        {
+            try
+            {
+                 Employee  employeeToDatele = await employeeRepository.GetAllModelById(id);
+                if (employeeToDatele == null)
+                {
+                    return BadRequest("Funcionário não encontrado");
+                }
+
+                return await employeeRepository.DeleteModel(id);
+
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao apagar o modelo na dados da base ");
+            }
+        }
+
+
         [HttpPut("{id:int}")]
         public async Task<ActionResult<Employee>> UpdateModel(int id, Employee employee)
         {
