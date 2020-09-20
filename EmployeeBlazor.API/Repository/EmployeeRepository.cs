@@ -70,7 +70,7 @@ namespace EmployeeBlazor.API.Repository
 
         public async Task<Employee> UpdateModel(Employee employee)
         {
-            Employee result = await db.Employee.FirstOrDefaultAsync(x => x.EmployeeId == employee.EmployeeId);
+            Employee result =await GetAllModelById(employee.EmployeeId);
 
             if (result != null)
             {
