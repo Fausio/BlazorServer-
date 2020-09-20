@@ -25,7 +25,13 @@ namespace EmployeeBlazor.API.Controllers
         {
             try
             {
-                return Ok(await employeeRepository.AddModel(employee));
+                if (employee ==null)
+                {
+                    return BadRequest();
+                }
+                Employee CreateEmployee = await employeeRepository.AddModel(employee) ;
+
+                return CreatedAtAction(nameof(GetEmployeeById), new { id = CreateEmployee.EmployeeId }, CreateEmployee);
             }
             catch (Exception)
             {
