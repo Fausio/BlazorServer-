@@ -14,6 +14,6 @@ namespace EmployeeBlazor.API.Interface
         Task<Employee> GetAllModelByEmail(string EmployeeEmail);
         Task<Employee> AddModel(Employee employee);
         Task<Employee> UpdateModel(Employee employee);
-        void DeleteModel(int EmployeeId);
+        Task<Employee> DeleteModel(int EmployeeId);
     }
 }

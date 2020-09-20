@@ -26,15 +26,18 @@ namespace EmployeeBlazor.API.Repository
             return result.Entity;
         }
 
-        public void DeleteModel(int employeeId)
-        {
-            Task<Employee> result = db.Employee.FirstOrDefaultAsync(x => x.EmployeeId == employeeId);
+        public async Task<Employee> DeleteModel(int employeeId)
+        { 
+            var  result = await GetAllModelById(employeeId);
 
             if (result != null)
             {
                 db.Remove(result);
                 db.SaveChangesAsync();
+                return result;
             }
+
+            return null;
         }
 
         public async Task<List<Employee>> GetAllModel()
