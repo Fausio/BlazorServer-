@@ -42,6 +42,19 @@ namespace EmployeeBlazor.API.Repository
             return await db.Employee.ToListAsync();
         }
 
+        public async  Task<Employee> GetAllModelByEmail(string EmployeeEmail)
+        {
+            Task<Employee> result = db.Employee.FirstOrDefaultAsync(x => x.Email == EmployeeEmail);
+            if (result != null)
+            {
+                return await result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public async Task<Employee> GetAllModelById(int employeeId)
         {
             Task<Employee> result = db.Employee.FirstOrDefaultAsync(x => x.EmployeeId == employeeId);
