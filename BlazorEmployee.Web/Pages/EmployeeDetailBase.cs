@@ -10,19 +10,19 @@ namespace BlazorEmployee.Web.Pages
 {
     public class EmployeeDetailBase : ComponentBase
     {
+        [Inject]
+        public IEmployeeServices EmployeeServices { get; set; }
 
-       public  IEmployeeServices EmployeeServices { get; set; }
+        public Employee Employee { get; set; } 
 
-        public Employee Employee { get; set; }
+        [Parameter]
+        public string id { get; set; }
 
-
-
-
-
-        protected override  async Task OnInitializedAsync()
+        protected override async Task OnInitializedAsync()
         {
-            return base.OnInitializedAsync();
+            Employee = new Employee();
+            Employee =  await EmployeeServices.GetEmployeeById(int.Parse(id)) ;             
         }
 
-    }    
+    }
 }
