@@ -8,6 +8,7 @@ using EmployeeBlazor.API.Model;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeBlazor.API.Repository
 {
@@ -27,8 +28,8 @@ namespace EmployeeBlazor.API.Repository
         }
 
         public async Task<Employee> DeleteModel(int employeeId)
-        { 
-            var  result = await GetAllModelById(employeeId);
+        {
+            var result = await GetAllModelById(employeeId);
 
             if (result != null)
             {
@@ -45,7 +46,7 @@ namespace EmployeeBlazor.API.Repository
             return await db.Employee.ToListAsync();
         }
 
-        public async  Task<Employee> GetAllModelByEmail(string EmployeeEmail)
+        public async Task<Employee> GetAllModelByEmail(string EmployeeEmail)
         {
             Task<Employee> result = db.Employee.FirstOrDefaultAsync(x => x.Email == EmployeeEmail);
             if (result != null)
@@ -71,9 +72,28 @@ namespace EmployeeBlazor.API.Repository
             }
         }
 
+        public async Task<List<Employee>> Search(string Name, Gender? Gender)
+        {
+            List<Employee> QueryResult =await  db.Employee.ToListAsync();
+
+            if (!string.IsNullOrEmpty(Name))
+            {
+                QueryResult = QueryResult.Where(f => Name.Contains(f.FirstName) || Name.Contains(f.LastName)).ToList();
+            }
+
+            if (Gender != null)
+            {
+                QueryResult = QueryResult.Where(f => f.Gender == Gender).ToList();
+            }
+
+            return  QueryResult.ToList();
+        }
+
+
+
         public async Task<Employee> UpdateModel(Employee employee)
         {
-            Employee result =await GetAllModelById(employee.EmployeeId);
+            Employee result = await GetAllModelById(employee.EmployeeId);
 
             if (result != null)
             {
