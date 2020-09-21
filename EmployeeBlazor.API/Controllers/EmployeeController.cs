@@ -25,7 +25,7 @@ namespace EmployeeBlazor.API.Controllers
         {
             try
             {
-                 Employee  employeeToDatele = await employeeRepository.GetAllModelById(id);
+                Employee employeeToDatele = await employeeRepository.GetAllModelById(id);
                 if (employeeToDatele == null)
                 {
                     return BadRequest("Funcionário não encontrado");
@@ -67,6 +67,8 @@ namespace EmployeeBlazor.API.Controllers
             }
         }
 
+
+
         [HttpPost]
         public async Task<ActionResult<Employee>> CreateEmployee(Employee employee)
         {
@@ -95,6 +97,28 @@ namespace EmployeeBlazor.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao adicionar o modelo na dados da base ");
             }
         }
+
+        [HttpGet("{SearchEmployee}")]
+        public async Task<ActionResult<Employee>> SearchEmployee(string Name, Gender? Gender)
+        {
+            try
+            {
+                List<Employee> employees = await employeeRepository.Search(Name, Gender);
+
+                if (employees.Any())
+                {
+                    return Ok(employees);
+                }
+
+                return NotFound();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
 
         [HttpGet]
         public async Task<ActionResult> GetAllEmployee()
