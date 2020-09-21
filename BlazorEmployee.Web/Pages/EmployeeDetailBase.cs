@@ -21,6 +21,7 @@ namespace BlazorEmployee.Web.Pages
         protected override async Task OnInitializedAsync()
         {
             Employee = new Employee();
+            id = id ?? "1";
             Employee =  await EmployeeServices.GetEmployeeById(int.Parse(id)) ;             
         }
 
