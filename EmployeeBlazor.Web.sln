@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeBlazor.API", "Emplo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorEmployee.Web", "BlazorEmployee.Web\BlazorEmployee.Web.csproj", "{23B54103-30CC-4755-BCF7-2E60ED612678}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeBlazor.Model", "EmployeeBlazor.Model\EmployeeBlazor.Model.csproj", "{80789B44-91A1-46B0-9CC5-FBB1F241FB13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeBlazor.Model", "EmployeeBlazor.Model\EmployeeBlazor.Model.csproj", "{80789B44-91A1-46B0-9CC5-FBB1F241FB13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
