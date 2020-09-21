@@ -34,7 +34,7 @@ namespace EmployeeBlazor.API.Repository
             if (result != null)
             {
                 db.Remove(result);
-                db.SaveChangesAsync();
+                await db.SaveChangesAsync();
                 return result;
             }
 
@@ -74,7 +74,7 @@ namespace EmployeeBlazor.API.Repository
 
         public async Task<List<Employee>> Search(string Name, Gender? Gender)
         {
-            List<Employee> QueryResult =await  db.Employee.ToListAsync();
+            List<Employee> QueryResult = await db.Employee.ToListAsync();
 
             if (!string.IsNullOrEmpty(Name))
             {
@@ -86,7 +86,7 @@ namespace EmployeeBlazor.API.Repository
                 QueryResult = QueryResult.Where(f => f.Gender == Gender).ToList();
             }
 
-            return  QueryResult.ToList();
+            return QueryResult.ToList();
         }
 
 

@@ -134,7 +134,7 @@ namespace EmployeeBlazor.API.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult> GetEmployeeById(int id)
+        public async Task<ActionResult<Employee>> GetEmployeeById(int id)
         {
             try
             {

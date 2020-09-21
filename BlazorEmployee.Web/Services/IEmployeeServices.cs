@@ -8,6 +8,8 @@ namespace BlazorEmployee.Web.Services
 {
     public interface IEmployeeServices
     {
-        Task<List<Employee>> GetEmployee();
+        Task<List<Employee>> GetEmployees();
+
+        Task<Employee> GetEmployeeById(int EmployeeId);
     }
 }
