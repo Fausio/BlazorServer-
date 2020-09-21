@@ -17,7 +17,7 @@ namespace BlazorEmployee.Web.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            Employees = (await EmployeeServices.GetEmployee()).ToList();
+            Employees = (await EmployeeServices.GetEmployees()).ToList();
         }  
     }
 }
