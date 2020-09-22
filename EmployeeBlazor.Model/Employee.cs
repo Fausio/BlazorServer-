@@ -22,6 +22,7 @@ namespace EmployeeBlazor.Model
         public Gender Gender { get; set; }
 
         public int DepartmentId { get; set; }
+        public Department Department { get; set; }
 
         public String PhotoPath { get; set; }
     }
