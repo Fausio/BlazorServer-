@@ -61,7 +61,7 @@ namespace EmployeeBlazor.API.Repository
 
         public async Task<Employee> GetAllModelById(int employeeId)
         {
-            Task<Employee> result = db.Employee.FirstOrDefaultAsync(x => x.EmployeeId == employeeId);
+            Task<Employee> result = db.Employee.Include(d => d.Department).FirstOrDefaultAsync(x => x.EmployeeId == employeeId);
             if (result != null)
             {
                 return await result;
