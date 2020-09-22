@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using BlazorEmployee.Web.Data;
 using BlazorEmployee.Web.Services;
+using Radzen;
 
 namespace BlazorEmployee.Web
 {
@@ -26,6 +27,7 @@ namespace BlazorEmployee.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped <NotificationService>();
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
