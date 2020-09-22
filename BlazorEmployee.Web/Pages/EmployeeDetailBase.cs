@@ -13,6 +13,10 @@ namespace BlazorEmployee.Web.Pages
         [Inject]
         public IEmployeeServices EmployeeServices { get; set; }
 
+        protected string BtnTxt = "Hide footer";
+
+        protected string HidefooterClass = string.Empty;
+
         public Employee Employee { get; set; } 
 
         [Parameter]
@@ -23,6 +27,22 @@ namespace BlazorEmployee.Web.Pages
             Employee = new Employee();
             id = id ?? "1";
             Employee =  await EmployeeServices.GetEmployeeById(int.Parse(id)) ;             
+        }
+
+        protected void BtnTxt_click()
+        {
+            if (BtnTxt== "Show footer")
+            {
+                HidefooterClass = string.Empty;
+                BtnTxt = "Hide footer";
+            }
+            else
+            {
+                HidefooterClass = "Hidefooter";
+                BtnTxt = "Show footer";
+            }
+            
+            
         }
 
     }
