@@ -14,6 +14,8 @@ namespace BlazorEmployee.Web.Pages
         public IEmployeeServices EmployeeServices { get; set; }
         public List<Employee> Employees { get; set; }
 
+        public bool Showfooter { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
             Employees = (await EmployeeServices.GetEmployees()).ToList();
