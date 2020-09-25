@@ -4,6 +4,10 @@
 
 <h3>EmployeeList</h3>
 
+    <input type="checkbox" @bind="Showfooter" id="ShowFooter"/>
+    <label for="ShowFooter">Show footer</label>
+
+
 @if (Employees == null)
 {
     <div class="spinner"> </div>
@@ -13,6 +17,7 @@ else
     <div class="card-deck">
         @foreach (var employee in Employees)
         {
+            <DisplayEmployee Employee="employee" ShowFooter="Showfooter" />
         }
     </div>
 }
