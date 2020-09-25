@@ -16,6 +16,7 @@ namespace BlazorEmployee.Web.Pages
         [Parameter]
         public Employee Employee { get; set; } = new Employee();
 
+        [Parameter]
         public int Id { get; set; }
 
         protected async override Task OnInitializedAsync()
