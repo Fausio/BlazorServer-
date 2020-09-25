@@ -16,6 +16,19 @@ namespace BlazorEmployee.Web.Pages
 
         public bool Showfooter { get; set; }
 
+        protected int SelectedEmployees { get; set; }
+
+        protected void EmployeeSelected(bool IsSelected)
+        {
+            if (IsSelected)
+            {
+                SelectedEmployees++;
+            }
+            else
+            {
+                SelectedEmployees--;
+            }
+        }
         protected override async Task OnInitializedAsync()
         {
             Employees = (await EmployeeServices.GetEmployees()).ToList();

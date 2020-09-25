@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlazorEmployee.Web.Pages
 {
-    public class DisplayEmployeeBase :ComponentBase
+    public class DisplayEmployeeBase : ComponentBase
     {
 
         [Parameter]
@@ -15,5 +15,13 @@ namespace BlazorEmployee.Web.Pages
 
         [Parameter]
         public bool ShowFooter { get; set; }
+
+        [Parameter]
+        public EventCallback<bool> OnEmployeeSelection { get; set; }
+
+        protected async Task Checkchange(ChangeEventArgs args)
+        {
+            await OnEmployeeSelection.InvokeAsync((bool)args.Value);
+        }
     }
 }

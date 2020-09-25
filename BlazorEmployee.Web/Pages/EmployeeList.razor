@@ -2,7 +2,7 @@
 @inherits EmployeeListBase
 
 
-<h3>EmployeeList</h3>
+<h3>Employees @SelectedEmployees</h3>
 
     <input type="checkbox" @bind="Showfooter" id="ShowFooter"/>
     <label for="ShowFooter">Show footer</label>
@@ -17,7 +17,7 @@ else
     <div class="card-deck">
         @foreach (var employee in Employees)
         {
-            <DisplayEmployee Employee="employee" ShowFooter="Showfooter" />
+            <DisplayEmployee Employee="employee" ShowFooter="Showfooter" OnEmployeeSelection="EmployeeSelected"/>
         }
     </div>
 }
