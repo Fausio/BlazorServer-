@@ -13,15 +13,25 @@ namespace BlazorEmployee.Web.Pages
         [Inject]
         protected IEmployeeServices employeeServices { get; set; }
 
+        [Inject]
+        protected IDepartmentServices departmentServices { get; set; }
+
         [Parameter]
         public Employee Employee { get; set; } = new Employee();
 
         [Parameter]
         public int Id { get; set; }
 
+
+        public List<Department> Departments { get; set; } = new List<Department>();
+
+        public string DepartmentId { get; set; }
+
         protected async override Task OnInitializedAsync()
         {
+            Departments = await departmentServices.GetDepartments();          
             Employee = await employeeServices.GetEmployeeById(Id);
+            DepartmentId = Employee.DepartmentId.ToString();
         }
 
 
