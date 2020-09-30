@@ -24,14 +24,11 @@ namespace BlazorEmployee.Web.Pages
 
 
         public List<Department> Departments { get; set; } = new List<Department>();
-
-        public string DepartmentId { get; set; }
-
+          
         protected async override Task OnInitializedAsync()
         {
             Departments = await departmentServices.GetDepartments();          
-            Employee = await employeeServices.GetEmployeeById(Id);
-            DepartmentId = Employee.DepartmentId.ToString();
+            Employee = await employeeServices.GetEmployeeById(Id); 
         }
 
 
