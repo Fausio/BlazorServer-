@@ -3,11 +3,13 @@
 
 <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
     <div class="card-header">
-       
-       
-        <input type="checkbox" @onchange="Checkchange"  />
-        <h3>   @Employee.FirstName @Employee.LastName  </h3>
-        
+
+
+        <h3>
+            <input type="checkbox" @onchange="Checkchange" />
+            @Employee.FirstName @Employee.LastName
+        </h3>
+
     </div>
     <img class="card-img-top imageThumbnail" src="@Employee.PhotoPath" />
     @if (ShowFooter)
